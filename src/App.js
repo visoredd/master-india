@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Main from "./components/Dashboard/Main";
+import Header from "./components/Header/Header";
+import Login from "./components/Login/Login";
 
 function App() {
+  const state = useSelector((reducer) => reducer.reducerSlice);
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-full w-full bg-slate-100">
+      {state.showModal && <Login />}
+      <Header />
+      <Main />
     </div>
   );
 }
